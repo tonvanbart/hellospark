@@ -23,6 +23,8 @@ Which should give you something like
     }
 
 Apart from Spark-Java, the only dependencies are slf4j and project Lombok.
+The sample integration test is based on code from 
+[https://github.com/mscharhag/blog-examples/tree/master/sparkdemo](https://github.com/mscharhag/blog-examples/tree/master/sparkdemo).
 
     
     

@@ -12,8 +12,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class HelloTest {
@@ -31,11 +31,17 @@ public class HelloTest {
 
     @Test
     public void responseAlwaysSuccess() throws Exception {
+        // when a request is made to "/world"
         TestResponse testResponse = request("GET", "/world");
+
+        // the request should succeed
         assertThat(testResponse.status, is(200));
+
+        // and the response DTO always has a status "success"
         ObjectMapper objectMapper = new ObjectMapper();
         HelloDto helloDto = objectMapper.readValue(testResponse.body, HelloDto.class);
         assertThat(helloDto.getStatus(), is("success"));
+        assertNotNull(helloDto.getMessage());
     }
 
     private TestResponse request(String method, String path) {
