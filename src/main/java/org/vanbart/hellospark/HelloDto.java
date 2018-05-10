@@ -2,12 +2,14 @@ package org.vanbart.hellospark;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class HelloDto {
 
-    private final String status;
+    private String status;
 
-    private final String message;
+    private String message;
 }

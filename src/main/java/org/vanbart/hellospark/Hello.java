@@ -26,6 +26,7 @@ public class Hello {
     private static final Logger log = LoggerFactory.getLogger(Hello.class);
 
     public static void main(String[] args) {
+        log.debug("main({})", args);
         Spark.get("/hello", (req, resp) -> "Hello, World from Spark");
         Spark.get("/world", (req, resp) -> {
             resp.type("application/json");
